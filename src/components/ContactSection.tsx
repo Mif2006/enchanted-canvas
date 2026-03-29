@@ -20,19 +20,19 @@ const ContactSection = ({ isActive }: { isActive: boolean }) => {
     }
   }, [isActive]);
 
-  const title = "LET'S TALK";
+  const title = "Свяжитесь с     нами";
 
   return (
-    <section ref={containerRef} className="section-panel flex relative">
+    <section ref={containerRef} className="section-panel flex flex-col lg:flex-row relative min-h-screen py-20 lg:py-0 overflow-x-hidden">
       <div className="absolute inset-0">
         <img src={sectionContact} alt="Contact bg" className="w-full h-full object-cover opacity-50" />
         <div className="absolute inset-0" style={{ background: "radial-gradient(circle at 30% 50%, hsl(0 0% 4% / 0.6), hsl(0 0% 4% / 0.95))" }} />
       </div>
 
       {/* Left side: giant text */}
-      <div className="relative z-10 w-1/2 flex flex-col justify-center pl-16">
+      <div className="relative z-10 w-full lg:w-1/2 flex flex-col justify-center px-6 md:px-12 lg:pl-16 lg:pr-0 mb-16 lg:mb-0 mt-8 lg:mt-0">
         <div className="overflow-hidden" style={{ perspective: "600px" }}>
-          <h2 className="font-display text-8xl font-bold tracking-tight leading-none">
+          <h2 className="font-display text-center text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none flex flex-wrap">
             {title.split("").map((char, i) => (
               <span
                 key={i}
@@ -44,18 +44,18 @@ const ContactSection = ({ isActive }: { isActive: boolean }) => {
             ))}
           </h2>
         </div>
-        <div className="w-24 h-[1px] bg-primary my-10" />
+        <div className="w-16 lg:w-24 h-[1px] bg-primary my-6 lg:my-10" />
         <p className="font-body text-muted-foreground text-sm max-w-sm leading-relaxed">
-          Have a project in mind? Let's create something extraordinary together. Every great collaboration starts with a conversation.
+          Есть идея для сайта? Давайте создадим нечто выдающееся вместе. Каждый успешный веб-проект начинается с простого разговора.
         </p>
 
-        <div className="flex gap-8 mt-12">
-          {["Instagram", "Behance", "Dribbble"].map((social, i) => (
+        <div className="flex flex-wrap gap-6 lg:gap-8 mt-10 lg:mt-12">
+          {["Telegram", "Behance", "Dribbble"].map((social, i) => (
             <a
               key={i}
               href="#"
               data-cursor-hover
-              className="font-body text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors duration-300 relative group"
+              className="font-body text-[10px] lg:text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors duration-300 relative group"
             >
               {social}
               <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
@@ -65,20 +65,20 @@ const ContactSection = ({ isActive }: { isActive: boolean }) => {
       </div>
 
       {/* Right side: contact form & image */}
-      <div className="relative z-10 w-1/2 flex items-center justify-center pr-16">
+      <div className="relative z-10 w-full lg:w-1/2 flex items-center justify-center px-6 md:px-12 lg:pr-16 lg:pl-0 pb-12 lg:pb-0">
         <div className="relative w-full max-w-md">
-          {/* Background image accent */}
-          <div className="absolute -top-20 -right-20 w-48 h-48 overflow-hidden opacity-40 animate-float">
+          {/* Background image accent - hidden on mobile to prevent clutter */}
+          <div className="hidden lg:block absolute -top-20 -right-20 w-48 h-48 overflow-hidden opacity-40 animate-float pointer-events-none">
             <img src={heroBg} alt="Accent" className="w-full h-full object-cover" />
           </div>
 
-          <div className="relative space-y-6">
+          <div className="relative space-y-6 bg-background/5 lg:bg-transparent p-6 lg:p-0 rounded-2xl border border-white/5 lg:border-none backdrop-blur-sm lg:backdrop-blur-none">
             <div className="group">
-              <label className="font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground">Name</label>
+              <label className="font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground">Имя</label>
               <input
                 type="text"
                 className="w-full bg-transparent border-b border-border py-3 font-body text-foreground focus:outline-none focus:border-primary transition-colors duration-300"
-                placeholder="Your name"
+                placeholder="Ваше имя"
               />
             </div>
             <div>
@@ -86,33 +86,33 @@ const ContactSection = ({ isActive }: { isActive: boolean }) => {
               <input
                 type="email"
                 className="w-full bg-transparent border-b border-border py-3 font-body text-foreground focus:outline-none focus:border-primary transition-colors duration-300"
-                placeholder="your@email.com"
+                placeholder="ваш@email.com"
               />
             </div>
             <div>
-              <label className="font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground">Message</label>
+              <label className="font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground">Сообщение</label>
               <textarea
                 rows={3}
                 className="w-full bg-transparent border-b border-border py-3 font-body text-foreground focus:outline-none focus:border-primary transition-colors duration-300 resize-none"
-                placeholder="Tell us about your vision..."
+                placeholder="Какой сайт вам нужен? Расскажите о вашей идее..."
               />
             </div>
             <button
               data-cursor-hover
-              className="magnetic-btn w-full py-4 border border-gold font-body text-xs tracking-[0.3em] uppercase text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-500 mt-4"
+              className="magnetic-btn w-full py-4 border border-gold font-body text-[10px] lg:text-xs tracking-[0.3em] uppercase text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-500 mt-4"
             >
-              Send Message
+              Отправить сообщение
             </button>
           </div>
 
-          {/* Corner decoration */}
-          <div className="absolute -bottom-8 -left-8 w-16 h-16 border-b border-l border-gold/20" />
+          {/* Corner decoration - adjusted for mobile */}
+          <div className="absolute -bottom-4 -left-4 lg:-bottom-8 lg:-left-8 w-12 h-12 lg:w-16 lg:h-16 border-b border-l border-gold/20 pointer-events-none" />
         </div>
       </div>
 
       {/* Bottom copyright */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
-        © 2024 Obsidian Studio. All rights reserved.
+      <div className="absolute bottom-6 left-0 right-0 text-center z-10 font-body text-[9px] lg:text-[10px] tracking-[0.3em] uppercase text-muted-foreground px-4">
+        © 2026 Студия Obsidian. Все права защищены.
       </div>
     </section>
   );
