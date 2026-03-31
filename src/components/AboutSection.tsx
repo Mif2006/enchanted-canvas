@@ -16,8 +16,8 @@ const Model = () => {
   return (
     <primitive 
       object={scene} 
-      scale={19} 
-      position={[0, -0.9, 0]} 
+      scale={21} 
+      position={[0, -1.2, 0]} 
       rotation={[0, -Math.PI / 4, 0]} 
     />
   );
