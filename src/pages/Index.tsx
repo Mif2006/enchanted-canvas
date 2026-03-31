@@ -7,6 +7,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import GallerySection from "@/components/GallerySection";
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
+import StarsCanvas from "@/components/Starbackground";
 
 const SECTIONS = 5;
 
@@ -103,8 +104,8 @@ const Index = () => {
 
   return (
     <div className={`${isMobile ? "relative overflow-y-auto" : "fixed inset-0 overflow-hidden"} bg-background`}>
-      <CustomCursor />
-      
+      {/* <CustomCursor /> */}
+   
       {/* Навигация (скрываем на мобилках для чистоты или оставляем как бургер) */}
       {!isMobile && <NavigationDots activeIndex={activeIndex} onNavigate={navigateTo} />}
       
@@ -142,6 +143,7 @@ const Index = () => {
         <GallerySection isActive={isMobile ? true : activeIndex === 2} />
         <AboutSection isActive={isMobile ? true : activeIndex === 3} />
         <ContactSection isActive={isMobile ? true : activeIndex === 4} />
+
       </div>
     </div>
   );
