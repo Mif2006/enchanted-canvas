@@ -14,9 +14,9 @@ import Project11 from "@/assets/18.png";
 import Project12 from "@/assets/19.png";
 import Project13 from "@/assets/20.png";
 
-import ProjectModal from "@/components/ProjectModal"; // adjust if needed
+import ProjectModal from "@/components/ProjectModal";
 
-type Project = {
+export type Project = {
   title: string;
   category: string;
   video: string;
@@ -158,33 +158,19 @@ const ProjectsSection = ({ isActive }: { isActive: boolean }) => {
             ref={(el) => {
               cardsRef.current[i] = el;
             }}
-            className={`relative group cursor-pointer flex-none w-[75vw] sm:w-[350px] lg:w-auto snap-center ${getInterlockMargin(
-              i
-            )}`}
+            className={`relative group cursor-pointer flex-none w-[75vw] sm:w-[350px] lg:w-auto snap-center ${getInterlockMargin(i)}`}
             onClick={() => setSelectedProject(projectsData[i])}
             onMouseEnter={() => {
               setHoveredIndex(i);
               const card = cardsRef.current[i];
               if (card && window.innerWidth > 1024)
-                gsap.to(card, {
-                  scale: 1.03,
-                  y: -5,
-                  zIndex: 20,
-                  duration: 0.4,
-                  ease: "power2.out",
-                });
+                gsap.to(card, { scale: 1.03, y: -5, zIndex: 20, duration: 0.4, ease: "power2.out" });
             }}
             onMouseLeave={() => {
               setHoveredIndex(null);
               const card = cardsRef.current[i];
               if (card && window.innerWidth > 1024)
-                gsap.to(card, {
-                  scale: 1,
-                  y: 0,
-                  zIndex: 1,
-                  duration: 0.4,
-                  ease: "power2.out",
-                });
+                gsap.to(card, { scale: 1, y: 0, zIndex: 1, duration: 0.4, ease: "power2.out" });
             }}
           >
             <div className="relative overflow-hidden aspect-[3/4] rounded-md border border-white/5 lg:border-none">
